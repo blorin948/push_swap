@@ -2,6 +2,7 @@
 
 t_nbr *pa(t_nbr *s)
 {
+	s->nb_instru++;
 	printf("pa\n");
 	int *newa;
 	int *newb;
@@ -37,6 +38,7 @@ t_nbr *pa(t_nbr *s)
 
 t_nbr *pb(t_nbr *s)
 {
+	s->nb_instru++;
 	printf("pb\n");
 	int *newa;
 	int *newb;
@@ -72,6 +74,7 @@ t_nbr *pb(t_nbr *s)
 
 t_nbr *sa(t_nbr *s)
 {
+	s->nb_instru++;
 	printf("sa\n");
 	if (s->sizea < 2)
 		return s;
@@ -84,6 +87,7 @@ t_nbr *sa(t_nbr *s)
 
 t_nbr *sb(t_nbr *s)
 {
+	s->nb_instru++;
 	printf("sb\n");
 	if (s->sizeb < 2)
 		return s;
@@ -103,6 +107,7 @@ void ss(t_nbr *s)
 
 void ra(t_nbr *s)
 {
+	s->nb_instru++;
 	int start = s->taba[0];
 	int i = 0;
 printf("ra\n");
@@ -120,6 +125,7 @@ printf("ra\n");
 
 void rb(t_nbr *s)
 {
+	s->nb_instru++;
 	printf("rb\n");
 	int start = s->tabb[0];
 	int i = 0;
@@ -142,6 +148,7 @@ void rr(t_nbr *s)
 
 void rra(t_nbr *s)
 {
+	s->nb_instru++;
 	printf("rra\n");
 	if (s->sizea < 2)
 		return ;
@@ -158,6 +165,7 @@ void rra(t_nbr *s)
 
 void rrb(t_nbr *s)
 {
+	s->nb_instru++;
 	printf("rrb\n");
 	if (s->sizeb < 2)
 		return ;

@@ -8,7 +8,6 @@
 # include <stdio.h>
 # include <sys/types.h>
 # include <signal.h>
-# include <sys/wait.h>
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <math.h>
@@ -20,6 +19,7 @@ typedef struct s_nbr
 	int *tabb;
 	int sizea;
 	int sizeb;
+	int nb_instru;
 }				t_nbr;
 
 t_nbr *pa(t_nbr *s);
