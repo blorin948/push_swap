@@ -1,46 +1,71 @@
+#include "get_next_line.h"
 #include "push_swap.h"
 
-void	move_back(t_nbr *s)
+int	exec_cmd(char *line, t_nbr *s)
 {
-	int	max;
-
-	while (s->sizeb > 0)
-	{
-		max = get_max(s->tabb, s->sizeb);
-		put_top_b(s, max);
+	if (ft_strcmp(line, "ra"))
+		ra(s);
+	else if (ft_strcmp(line, "rra"))
+		rra(s);
+	else if (ft_strcmp(line, "ss"))
+		ss(s);
+	else if (ft_strcmp(line, "pa"))
 		pa(s);
-	}
+	else if (ft_strcmp(line, "pb"))
+		pb(s);
+	else if (ft_strcmp(line, "rr"))
+		rr(s);
+	else if (ft_strcmp(line, "sa"))
+		sa(s);
+	else if (ft_strcmp(line, "sb"))
+		sb(s);
+	else if (ft_strcmp(line, "rb"))
+		rb(s);
+	else if (ft_strcmp(line, "rrb"))
+		rrb(s);
+	else if (ft_strcmp(line, "rrr"))
+		rrr(s);
+	else
+		error();
+	return (1);
 }
 
 void	init_nbr(t_nbr *s, int ac)
 {
 	s->sizea = ac - 1;
 	s->sizeb = 0;
-	s->print = 1;
+	s->print = 0;
 	s->nb_instru = 0;
 	s->taba = malloc(sizeof(int) * ac - 1);
 	s->tabb = malloc(sizeof(int));
 }
 
-void	start_swap(t_nbr *s, int ac)
+void	check2(t_nbr *s)
 {
+	char	*line;
+
+	line = NULL;
 	if (!check_double(s))
 	{
 		printf("Error\n");
 		exit(0);
 	}
-	if (is_sorted(s))
+	if (s->sizea == 0)
 		return ;
-	if (ac == 2)
-		ra(s);
-	else if (ac == 3)
-		three_nbr(s);
-	else if (ac >= 4 && ac <= 19)
-		five_nbr(s);
-	else if (ac <= 100)
-		hundred_nbr(s, 15);
+	while (get_next_line(&line))
+	{
+		if (exec_cmd(line, s) == 0)
+		{
+			free(line);
+			return ;
+		}
+		free(line);
+	}
+	free(line);
+	if (is_sorted(s) == 1)
+		printf("OK\n");
 	else
-		hundred_nbr(s, 40);
+		printf("KO\n");
 }
 
 void	init_tab(t_nbr *s, int ac, char **av, int i)
@@ -85,6 +110,6 @@ int	main(int ac, char **av)
 	init_tab(s, ac, av, i);
 	if (c == 0)
 		ac = ac - 1;
-	start_swap(s, ac);
+	check2(s);
 	free_all(s);
 }
