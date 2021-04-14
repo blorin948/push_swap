@@ -6,11 +6,61 @@
 /*   By: blorin <blorin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/11 15:14:09 by blorin            #+#    #+#             */
-/*   Updated: 2021/04/01 15:40:25 by blorin           ###   ########lyon.fr   */
+/*   Updated: 2021/04/14 15:05:45 by blorin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+
+char **copy_tab(char **av, int ac)
+{
+	char **copy;
+	int i = 1;
+	int a = 0;
+
+	copy = malloc(sizeof(char *) * ac);
+	while (i < ac)
+	{
+		copy[a] = ft_strdup(av[i]);
+		a++;
+		i++;
+	}
+	copy[a] = 0;
+	return (copy);
+}
+
+int is_space(char *str)
+{
+	int i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == ' ')
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+char    *ft_strdup(const char *src)
+{
+        char    *dest;
+        int             i;
+
+        i = 0;
+        while (src[i] != '\0')
+                i++;
+        if (!(dest = malloc(sizeof(char) * (i + 1))))
+                return (0);
+        i = 0;
+        while (src[i] != '\0')
+        {
+                dest[i] = (char)src[i];
+                i++;
+        }
+        dest[i] = '\0';
+        return (dest);
+}
 
 char	**ft_tab(char const *s, char c, char **tab)
 {
