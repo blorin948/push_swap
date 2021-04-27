@@ -74,7 +74,6 @@ void	init_tab(t_nbr *s, int ac, char **av, int i)
 	int			a;
 
 	a = 0;
-
 	while (i < ac)
 	{
 		if (ft_isdigit(av[i]) == 0)
@@ -87,42 +86,17 @@ void	init_tab(t_nbr *s, int ac, char **av, int i)
 	}
 }
 
-char **ft_split2(char **copy, int ac, t_nbr *s)
-{
-	int i = 0;
-	char **tmp;
-	char **new;
-
-	if (is_space(copy[0]) == 0)
-	{
-		init_nbr(s, ac);
-		return (copy);
-	}
-	tmp = copy;
-	new = ft_split(copy[0], ' ');
-	while (tmp[i])
-		free(tmp[i++]);
-
-	free(tmp);
-		ac = 0;
-		while (new[ac])
-			ac++;
-		init_nbr(s, ac);
-		i = 0;
-	return (new);
-}
-
 int	main(int ac, char **av)
 {
 	t_nbr		*s;
 	int			i;
 	int			c;
-	char **copy;
+	char		**copy;
 
 	c = 0;
 	i = 0;
 	s = malloc(sizeof(t_nbr));
-		copy = copy_tab(av, ac);
+	copy = copy_tab(av, ac);
 	ac = ac - 1;
 	if (ac == 1)
 	{

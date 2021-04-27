@@ -2,8 +2,9 @@
 
 void	free_all(t_nbr *s, char **copy)
 {
-	int i = 0;
+	int	i;
 
+	i = 0;
 	while (copy[i])
 		free(copy[i++]);
 	free(copy);

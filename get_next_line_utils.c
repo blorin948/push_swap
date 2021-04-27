@@ -6,12 +6,11 @@
 /*   By: blorin <blorin@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 23:32:01 by blorin            #+#    #+#             */
-/*   Updated: 2021/04/14 14:29:03 by blorin           ###   ########lyon.fr   */
+/*   Updated: 2021/04/23 14:53:52 by blorin           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
 
 char	*ft_strchr(const char *s, int c)
 {

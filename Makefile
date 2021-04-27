@@ -18,7 +18,8 @@ SRC_PUSH_SWAP =		main.c\
 					hundred_nbr.c\
 					pa_pb.c\
 					sa_sb_ra.c\
-					ft_split.c
+					ft_split.c\
+					split2.c
 
 SRC_CHECKER =   checker.c\
 				get_next_line.c\
@@ -29,7 +30,8 @@ SRC_CHECKER =   checker.c\
 				fonctions2.c\
 				pa_pb.c\
 				sa_sb_ra.c\
-				ft_split.c
+				ft_split.c\
+				split2.c
 
 OBJ_PUSH_SWAP = $(patsubst %.c, obj/%.o, $(SRC_PUSH_SWAP))
 
